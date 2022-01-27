@@ -8,8 +8,11 @@ FROM collelog/arib-b25-stream-test-build:latest-alpine AS arib-b25-stream-test-i
 # final image
 FROM mirakc/mirakc:alpine
 
+COPY ./services.sh /usr/local/bin/services.sh
 COPY --from=recfsusb2n-image /build /
 COPY --from=libarib25-image /build /
 COPY --from=arib-b25-stream-test-image /build /
 
 RUN apk add --no-cache pcsc-lite-libs ccid pcsc-lite
+
+ENTRYPOINT ["/usr/local/bin/services.sh"]
