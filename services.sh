@@ -1,4 +1,4 @@
 #!/bin/sh
-/etc/init.d/pcscd start
+pcscd
 echo "Start mirakc"
 mirakc
