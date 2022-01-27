@@ -12,4 +12,4 @@ COPY --from=recfsusb2n-image /build /
 COPY --from=libarib25-image /build /
 COPY --from=arib-b25-stream-test-image /build /
 
-RUN apk add --no-cache pcsc-lite-libs
+RUN apk add --no-cache pcsc-lite pcsc-lite-libs pcsc-lite-dev pcsc-lite-openrc
