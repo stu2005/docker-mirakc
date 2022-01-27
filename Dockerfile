@@ -13,6 +13,7 @@ COPY --from=recfsusb2n-image /build /
 COPY --from=libarib25-image /build /
 COPY --from=arib-b25-stream-test-image /build /
 
-RUN apk add --no-cache pcsc-lite-libs ccid pcsc-lite
+RUN apk add --no-cache pcsc-lite-libs ccid pcsc-lite \
+&& chmod 755 /usr/local/bin/services.sh
 
 ENTRYPOINT ["/usr/local/bin/services.sh"]
